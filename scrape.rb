@@ -1,10 +1,10 @@
 require 'net/http'
 
-# 対象サイトのURLを指定してHTMLを取得し標準出力に表示します
-url = 'https://masayuki14.github.io/pit-news/'
-uri = URI(url)
+def get_from(url)
+  Net::HTTP.get(URI(url))
+end
 
-html = Net::HTTP.get(uri)
+html = get_from('https://masayuki14.github.io/pit-news/')
 
 file = File.open('pitnews.html', 'w')
 file.write(html)
