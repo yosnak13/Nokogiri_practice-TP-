@@ -8,7 +8,7 @@ def write_file(path, text)
   # file = File.open('path', 'w')
   # file.write(text)
   # file.close
-  File.open('path', 'w') { |file| file.write(text) }
+  File.open(path, 'w') { |file| file.write(text) }
 end
 
 # html = get_from('https://masayuki14.github.io/pit-news/')
