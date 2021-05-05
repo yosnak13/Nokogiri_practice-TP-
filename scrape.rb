@@ -20,3 +20,11 @@ write_file('pitnews.html', get_from('https://masayuki14.github.io/pit-news/'))
 # file = File.open('pitnews.html', 'w')
 # file.write(html)
 # file.close
+
+
+require 'nokogiri'
+
+html = File.open('pitnews.html', 'r') {|f| f.read }
+doc = Nokogiri::HTML.parse(html, nil, 'utf-8')
+# //h6はルートノード以下の全てのh6要素を取得
+nodes = doc.xpath('//h6')
