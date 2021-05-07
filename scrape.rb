@@ -27,4 +27,8 @@ require 'nokogiri'
 html = File.open('pitnews.html', 'r') {|f| f.read }
 doc = Nokogiri::HTML.parse(html, nil, 'utf-8')
 # //h6はルートノード以下の全てのh6要素を取得
-nodes = doc.xpath('//h6')
+# nodes = doc.xpath('//h6')
+# sectionタグの要素を取得
+section = doc.xpath('/html/body/main/section[2]').first
+# カテゴリー名の取得
+category = section.xpath('./h6'),first.text
